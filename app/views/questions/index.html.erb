@@ -1,15 +1,16 @@
 <html dir="rtl">
 <p id="notice"><%= notice %></p>
-<div class="card" >
+
+<br/>
 <div class="card-header">
 <h1>قائمة الاسئلة</h1>
 </div>
   <br/>
-  <div class="card">
+
     <% @questions.each do |question| %>
-  <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= question.title %></h5>
+  <div class="card  ">
+        <h5 class="card-header"><%= question.title %></h5>
+    <div class="card-body" >
         <p class="card-text"><%= question.content %></p>
       </div>
       <div class="card-footer">
@@ -19,11 +20,12 @@
         <td><%= link_to 'حذف', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </div>
     </div>
+
       <br/>
 <% end %>
   </div>
 </div>
-<br>
-
 <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-primary" %>
+
+
 </html>
