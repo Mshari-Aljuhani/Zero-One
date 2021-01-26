@@ -4,6 +4,8 @@
 <br/>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="field">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"الإيميل", autofocus:true %>
   </div>
@@ -23,8 +25,9 @@
     </div>
   <% end %>
   <br/>
-  <div class="actions", class="btn btn-primary" >
-    <%= f.submit "تسجيل الدخول"  %>
+
+  <div class="actions" >
+    <%= f.submit "تسجيل الدخول",  class:"btn btn-outline-secondary"%>
   </div>
 <% end %>
 <br/>
