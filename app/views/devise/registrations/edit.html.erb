@@ -1,49 +1,46 @@
 <html dir="rtl" >
 <br/>
-<h2>اعدادات <%= resource_name.to_s.humanize %></h2>
+<h2>اعدادات الحساب<% resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :الايميل %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+    <% f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "الايميل"%>
   </div>
-
+<br/>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-<br/>
+
   <div class="field">
-    <%= f.label :"كلمة المرور" %>
-    <i>(اذا لا تريد تغيير كلمة المرور اتركها فارغة)</i>
-    <br/>
-    <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
+    <% f.label :password %>
+
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "كلمة المرور الجديدة  (اذا لا تريد تغيير كلمة المرور اتركها فارغة)" %>
     <% if @minimum_password_length %>
-      <em>  الحد الادنى للأحرف<%= @minimum_password_length %> </em>
+      <em><% @minimum_password_length %> </em>
     <% end %>
   </div>
-<br/>
+
   <div class="field">
-    <%= f.label :"تأكيد كلمة المرور" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    <% f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "form-control", placeholder: "تأكيد كلمة المرور" %>
   </div>
 <br/>
   <div class="field">
-    <%= f.label :"كلمة المرور الحالية" %> <i>(يجب ادخالها لحفظ التغييرات)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <% f.label :current_password %> <i></i>
+    <%= f.password_field :current_password, autocomplete: "current-password",  class: "form-control", placeholder: "كلمة المرور الحالية  (يجب ادخالها لحفظ التغييرات)" %>
   </div>
 
-  <br/>
+<br/>
   <div class="actions">
-    <%= f.submit "تحديث", class:"btn btn-outline-info" %>
+    <%= f.submit "تحديث", class:"btn btn-outline-info"   %>
   </div>
 <% end %>
-
 <br/>
-<h3>حذف الحساب</h3>
 
-<p>ما اعجبك الموقع؟ :"(<%= button_to "إلغاء الحساب", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %></p>
+<p>ما اعجبك الموقع؟ :( <%= button_to "إلغاء الحساب", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "رجوع", :back, class:"btn btn-light"%>
 </html>
