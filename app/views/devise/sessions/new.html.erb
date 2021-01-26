@@ -1,35 +1,42 @@
 <html dir="rtl">
 <br/>
-<h2>تسجيل الدخول</h2>
+
+<div class="card">
+  <div class="card-header">
+    <h4>تسجيل الدخول</h4>
+  </div>
+  <div class="card-body">
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"الإيميل", autofocus:true %>
+      </div>
+
+      <br/>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:" كلمة المرور", autofocus:true %>
+      </div>
+
+      <br/>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :تذكرني %>
+        </div>
+      <% end %>
+      <br/>
+
+      <div class="actions" >
+        <%= f.submit "تسجيل الدخول",  class:"btn btn-outline-secondary"%>
+      </div>
+    <% end %>
+  </div>
+</div>
 <br/>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"الإيميل", autofocus:true %>
-  </div>
-
-  <br/>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:" كلمة المرور", autofocus:true %>
-  </div>
-
-  <br/>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :تذكرني %>
-    </div>
-  <% end %>
-  <br/>
-
-  <div class="actions" >
-    <%= f.submit "تسجيل الدخول",  class:"btn btn-outline-secondary"%>
-  </div>
-<% end %>
-<br/>
 <%= render "devise/shared/links" %>
 </html>
