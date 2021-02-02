@@ -11,7 +11,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"الإيميل", autofocus:true %>
+        <%= f.text_field :login, autofocus: true, class:"form-control", placeholder:"الإيميل او اسم المستخدم", autofocus:true %>
       </div>
 
       <br/>
