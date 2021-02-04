@@ -10,16 +10,15 @@
       </ul>
     </div>
   <% end %>
-
+<br/>
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title,class: "form-control", placeholder: "عنوان الموضوع" %>
   </div>
-
+<br/>
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content,  class: "form-control", placeholder: "محتوى الموضوع" %>
   </div>
+<br/>
 
   <div class="actions">
     <%= form.submit %>

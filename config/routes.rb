@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :questions
+  resources :questions, only: [:show, :index, :new, :create, :edit, :update, :destroy]
   devise_for :users
   devise_scope :user do
 
