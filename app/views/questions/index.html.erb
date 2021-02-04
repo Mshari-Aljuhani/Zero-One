@@ -1,9 +1,12 @@
-<html dir="rtl">
-<p id="notice"><%= notice %></p>
+<html lang='ar' dir="rtl">
+<br/>
+<% if user_signed_in? %>
+<h4 colors=$teal-300> مرحبًا <%= current_user.username %> </h4>
+<%end %>
 
 <br/>
 <div class="card-header">
-<h1>قائمة الاسئلة</h1>
+<h1>قائمة المواضيع</h1>
 </div>
   <br/>
 
@@ -23,9 +26,8 @@
 
       <br/>
 <% end %>
+<%= link_to 'سؤال جديد', new_question_path, class:"btn btn-primary" %>
   </div>
 </div>
-<%= link_to 'سؤال جديد', new_question_path, class:"btn btn-primary" %>
-
 
 </html>
