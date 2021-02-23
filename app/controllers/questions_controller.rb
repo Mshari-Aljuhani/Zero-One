@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
+       now = Time.new
+      @questions =  Question.where(updated_at: (now - 21.hours)..now)
   end
 
   # GET /questions/1
@@ -70,4 +72,7 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :content)
     end
+
+
+
 end

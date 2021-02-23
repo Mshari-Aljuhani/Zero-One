@@ -2,5 +2,12 @@
 <h1> صفحة البداية </h1>
 <h4> اضغط على الصفحة الرئيسية فوق عشان تروح لقائمة الاسئلة </h4>
 
+<div class="field">
+  <%if resource.avatar.attached? %>
+    <%= image_tag resource.avatar.variant(resize: '100x100!')%>
+  <%else %>
+    <%= image_tag("/default_profile.jpg") %>
+  <%end %>
+</div>
 
 </html>

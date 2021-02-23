@@ -3,11 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+      has_one_attached :avatar
+  def avatar_thumbnail
+     if avatar.attached?
+       avatar.variant(resize: '150x150!').processed
+     else
+       "default_profile.png"
+     end
+  end
   attr_writer :login
     validate :validate_username
-
-
 
   def login
     @login || username || email
@@ -27,5 +32,6 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end
+
 
 end

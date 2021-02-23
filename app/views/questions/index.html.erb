@@ -1,26 +1,34 @@
 <html lang='ar' dir="rtl">
 <br/>
+
 <% if user_signed_in? %>
-<h3 colors=$teal-300> مرحبًا <%= current_user.username %> </h3>
+<h3 colors=$teal-300> مرحبًا <%= current_user.username %>
+
+  <%= image_tag current_user.avatar_thumbnail%>
+
+</h3>
 <%end %>
 
-<br/>
+<br/> <br/>
+
 <div class="card-header">
 <h1>قائمة المواضيع</h1>
 </div>
   <br/>
 
     <% @questions.each do |question| %>
+
   <div class="card  ">
         <h5 class="card-header"><%= question.title %></h5>
     <div class="card-body" >
-        <p class="card-text"><%= question.content %></p>
+          <p class="card-text"><%= question.content %></p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <small> <%=  question.updated_at %> </small>
         <td><%= link_to 'اظهار', question %></td>
         <td><%= link_to 'تعديل', edit_question_path(question) %></td>
         <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
+
       </div>
     </div>
 

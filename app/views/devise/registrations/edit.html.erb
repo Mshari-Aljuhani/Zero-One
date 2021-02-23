@@ -5,14 +5,27 @@
   <div class="card-header">
     <h4>اعدادات الحساب<% resource_name.to_s.humanize %></h4>
   </div>
-    <div class="card-body">
+
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div class="field">
+        <%= image_tag (resource.avatar_thumbnail) %>
+    </div>
+
+
+    <br>
+
+    <div class="field">
+      <%= f.file_field :avatar %>
+    </div>
+        <br>
         <div class="field">
           <% f.label :username %>
           <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "اسم المستخدم"%>
         </div>
+
 
         <div class="field">
           <% f.label :email %><br />
@@ -57,7 +70,7 @@
 <div class="card">
   <div class="card-body">
 
-    <p>ما اعجبك الموقع؟ :( <%= button_to "إلغاء الحساب", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %></p>
+    <p>تستطيع إلغاء الحساب من هنا <%= button_to "إلغاء الحساب", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger" %></p>
   </div>
 </div>
 
