@@ -25,10 +25,6 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
 
-gem 'rmagick'
-gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
-
-# Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do

@@ -3,14 +3,34 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-      has_one_attached :avatar
+  has_one_attached :avatar
+  has_many :questions
+
+  after_commit :add_default_avatar, on: %i[create update]
+
+  private(
+    def add_default_avatar
+      unless avatar.attached?
+        avatar.attach(
+          io: File.open(
+            Rails.root.join(
+              'app', 'assets', 'images', 'default_profile.png'
+            )
+          ), filename: 'default_profile.png',
+          content_type: 'image/png'
+        )
+      end
+    end
+  )
+
   def avatar_thumbnail
      if avatar.attached?
-       avatar.variant(resize: '150x150!').processed
+       avatar.variant(resize: '100x100!')
      else
-       "default_profile.png"
+       add_default_avatar
      end
   end
+
   attr_writer :login
     validate :validate_username
 

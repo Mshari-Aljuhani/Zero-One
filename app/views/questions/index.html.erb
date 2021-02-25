@@ -2,12 +2,14 @@
 <br/>
 
 <% if user_signed_in? %>
-<h3 colors=$teal-300> مرحبًا <%= current_user.username %>
-
-  <%= image_tag current_user.avatar_thumbnail%>
-
-</h3>
+  <div class="form-group">
+    <%= image_tag current_user.avatar_thumbnail, class: 'rounded-circle'%>
+      <br/><br/>
+    <h3> مرحبًا <%= current_user.username %></h3>
+</div>
 <%end %>
+
+
 
 <br/> <br/>
 
@@ -18,20 +20,31 @@
 
     <% @questions.each do |question| %>
 
-  <div class="card  ">
-        <h5 class="card-header"><%= question.title %></h5>
-    <div class="card-body" >
-          <p class="card-text"><%= question.content %></p>
-      </div>
-      <div class="card-footer">
-        <small> <%=  question.updated_at %> </small>
-        <td><%= link_to 'اظهار', question %></td>
-        <td><%= link_to 'تعديل', edit_question_path(question) %></td>
-        <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
 
+  <div class='card' >
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-8 col-md-12">
+             <h5 class="card-header"><%= question.title %></h5>
+            <div class="col-4 col-md-12">
+              <p class="card-text"><%= question.content %></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="card-footer">
+      <small> <%=  question.updated_at %> </small>
+      <td><%= link_to 'اظهار', question %></td>
+      <td><%= link_to 'تعديل', edit_question_path(question) %></td>
+      <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
+    </div>
 
+  </div>
       <br/>
 <% end %>
 <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-primary" %>

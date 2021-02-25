@@ -7,6 +7,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    ImageResize (0.0.5)
     actioncable (6.1.1)
       actionpack (= 6.1.1)
       activesupport (= 6.1.1)
@@ -223,6 +224,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  ImageResize (~> 0.0.5)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
