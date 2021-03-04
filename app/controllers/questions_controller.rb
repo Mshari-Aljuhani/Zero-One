@@ -43,6 +43,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+
+  def vote
+    if !current_user.liked? @question
+      @question.liked_by current_user
+    elsif current_user.liked? @question
+      @question.unliked_by current_user
+    end
+  end
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
@@ -57,9 +65,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # DELETE /questions/1
-  # DELETE /questions/1.json
-
+  # DELETE questions
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
@@ -67,6 +73,7 @@ class QuestionsController < ApplicationController
   end
 
 
+<<<<<<< Updated upstream
   def like
     if current_user.voted_for? @question
       @question.unliked_by current_user
@@ -76,6 +83,8 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 
+=======
+>>>>>>> Stashed changes
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question

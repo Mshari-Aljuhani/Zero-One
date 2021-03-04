@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_one_attached :avatar
   has_many :questions
   acts_as_voter
@@ -26,11 +27,16 @@ class User < ApplicationRecord
 
   def avatar_thumbnail
      if avatar.attached?
+<<<<<<< Updated upstream
        avatar.variant(resize: '80x80!')
+=======
+       avatar.variant(resize: '90x90!')
+>>>>>>> Stashed changes
      else
        add_default_avatar
      end
   end
+
 
   attr_writer :login
     validate :validate_username

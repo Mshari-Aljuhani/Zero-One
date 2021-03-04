@@ -1,12 +1,10 @@
 <html dir="rtl">
 <br/>
-
 <div class="card">
   <div class="card-header">
     <h4>تسجيل الدخول</h4>
   </div>
   <div class="card-body">
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -37,6 +35,5 @@
   </div>
 </div>
 <br/>
-
 <%= render "devise/shared/links" %>
 </html>

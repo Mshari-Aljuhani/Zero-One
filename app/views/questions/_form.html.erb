@@ -1,5 +1,6 @@
 <%= form_with(model: question) do |form| %>
   <% if question.errors.any? %>
+
     <div id="error_explanation">
       <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
       <ul>
@@ -8,16 +9,22 @@
         <% end %>
       </ul>
     </div>
+
   <% end %>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   <br/>
   <div class="field">
     <%= form.text_field :title,class: "form-control", placeholder: "عنوان الموضوع" %>
   </div>
-<br/>
+  <br/>
   <div class="field">
     <%= form.text_area :content,  class: "form-control", placeholder: "محتوى الموضوع" %>
   </div>
-<br/>
+
+  <br/>
 
   <div class="actions">
     <%= form.submit %>
