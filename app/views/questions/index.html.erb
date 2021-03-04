@@ -2,12 +2,10 @@
 <br/>
 
 <% if user_signed_in? %>
-<<<<<<< Updated upstream
   <div class="form-group">
       <br/><br/>
-=======
+
     <br/><br/>
->>>>>>> Stashed changes
     <h3> مرحبًا <%= current_user.username %></h3>
 <%end %>
 
@@ -18,7 +16,6 @@
 <div class="card-header">
   <h1>قائمة المواضيع</h1>
 </div>
-<<<<<<< Updated upstream
   <br/>
 
     <% @questions.each do |question| %>
@@ -45,7 +42,7 @@
 <% else %>
   <%= link_to "'سؤال جديد", new_user_registration_path, class:"btn btn-primary" %>
 <% end %>
-=======
+
 <br/>
 
 <% @questions.each do |question| %>
@@ -74,5 +71,4 @@
 </div>
 </div>
 <br/><br/>
->>>>>>> Stashed changes
 </html>

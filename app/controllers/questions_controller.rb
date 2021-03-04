@@ -73,7 +73,6 @@ class QuestionsController < ApplicationController
   end
 
 
-<<<<<<< Updated upstream
   def like
     if current_user.voted_for? @question
       @question.unliked_by current_user
@@ -83,8 +82,6 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 
-=======
->>>>>>> Stashed changes
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question

@@ -27,11 +27,7 @@ class User < ApplicationRecord
 
   def avatar_thumbnail
      if avatar.attached?
-<<<<<<< Updated upstream
-       avatar.variant(resize: '80x80!')
-=======
        avatar.variant(resize: '90x90!')
->>>>>>> Stashed changes
      else
        add_default_avatar
      end
