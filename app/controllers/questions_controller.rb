@@ -72,7 +72,6 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
-
   def like
     if current_user.voted_for? @question
       @question.unliked_by current_user
