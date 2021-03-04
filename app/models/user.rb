@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :avatar
   has_many :questions
+  acts_as_voter
 
   after_commit :add_default_avatar, on: %i[create update]
 
@@ -25,7 +26,7 @@ class User < ApplicationRecord
 
   def avatar_thumbnail
      if avatar.attached?
-       avatar.variant(resize: '100x100!')
+       avatar.variant(resize: '80x80!')
      else
        add_default_avatar
      end

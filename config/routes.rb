@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-
-  resources :questions, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  root 'questions#index'
   devise_for :users
   devise_scope :user do
-
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root 'questions#index'
+
+  resources :questions do
+    member do
+      get 'like' => 'questions#like'
+      get 'link' => 'questions#like_link'
+    end
+  end
+
 end
 

@@ -1,8 +1,13 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %w[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[edit update destroy like]
+  before_action :set_question, only: %i[ show edit update destroy like]
 
   # GET /questions
   # GET /questions.json
+  def name
+    puts= current_user.username
+  end
+
   def index
     @questions = Question.all
        now = Time.new
@@ -26,8 +31,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-
+      @question = Question.new(question_params)
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: "تم نشر الموضوع" }
@@ -62,6 +66,16 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+
+  def like
+    if current_user.voted_for? @question
+      @question.unliked_by current_user
+    else
+      @question.liked_by current_user
+    end
+    redirect_to @question
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -72,7 +86,5 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :content)
     end
-
-
 
 end

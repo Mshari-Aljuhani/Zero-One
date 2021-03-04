@@ -1,0 +1,3 @@
+<% vote_text = current_user&.voted_for?(question) ? "إلغاءالتصويت" : "تصويت للسؤال"%>
+<%= link_to vote_text, like_question_path(question),
+            method: :put, remote: :true, class: 'like-post' %>
