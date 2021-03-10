@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+.Footer1{
+    background: #2E2F30;
+    height: 70px;
+}
+
+.card-footer{
+    background: #E1E4EB;
+}
+
+.navbar-nav{
+    margin-left: 70px;
+}
+
+.card-title{
+    padding: 5px;
+    border-radius: 5px;
+    background: #3498db;
+}
+
+.bg {
+     background-image: url('app/assets/images/bgTest.jpg');
+     background-attachment: fixed;
+     background-size: cover;
+ }
+

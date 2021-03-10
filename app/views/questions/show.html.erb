@@ -9,11 +9,14 @@
     </p>
     <%= link_to 'تعديل', edit_question_path(@question) %> |
     <%= link_to 'العودة', questions_path %>
+
     <div id='like-count'>
       <%=render 'questions/like', question: @question %>
     </div>
+
     <div id='like-link' class="btn btn-outline-success">
       <%=render 'questions/like_link', question: @question %>
     </div>
+
   </div>
 </div>

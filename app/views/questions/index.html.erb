@@ -7,36 +7,36 @@
       <h3> مرحبًا <%= current_user.username %></h3>
     </div>
     <%end %>
-
 <br/>
 
-<div class="card-header">
-  <h1>قائمة المواضيع</h1>
-</div>
+  <div class="card text-light bg-dark">
+     <h1 class="card-header"> قائمة المواضيع </h1>
+  </div>
+
   <br/>
     <% @questions.each do |question| %>
   <div class='card'>
-        <div>
-          <div class="card text-dark bg-#0D3B90 mb-3">
-              <h5 class="card-header"> <%= question.title %> </h5>
+          <div class="card-title text-dark">
+              <h5><%= question.title %> </h5>
           </div>
+
               <p class="card-body"> <%= question.content %> </p>
-        </div>
-        <div class="card-footer">
+
+          <div class="card-footer">
               <small> <%=  question.updated_at %> </small>
               <td><%= link_to 'اظهار', question %></td>
               <td><%= link_to 'تعديل', edit_question_path(question) %></td>
               <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
-        </div>
+         </div>
 </div>
   <br/>
 <% end %>
 <br/>
 
 <% if user_signed_in? %>
-  <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-primary" %>
+  <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-dark" %>
 <% else %>
-  <%= link_to "سؤال جديد", new_user_session_path, class:"btn btn-primary" %>
+  <%= link_to "سؤال جديد", new_user_session_path, class:"btn btn-dark" %>
 <% end %>
 </div>
 
