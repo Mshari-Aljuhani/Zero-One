@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="card" style="width: 50rem;">
   <div class="card-body">
+    <%= image_tag @question.user.avatar_thumbnail, class: 'rounded-circle'%>
+    <br/><br/>
     <h5 class="card-title"><strong>العنوان:</strong>
       <%= @question.title %>
     </h5>
@@ -9,7 +11,7 @@
     </p>
     <%= link_to 'تعديل', edit_question_path(@question) %> |
     <%= link_to 'العودة', questions_path %>
-
+   <p>كتبت بواسطة <%= @question.user.username %> </p>
     <div id='like-count'>
       <%=render 'questions/like', question: @question %>
     </div>

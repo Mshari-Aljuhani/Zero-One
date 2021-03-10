@@ -1,11 +1,12 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!, only: %i[edit update destroy like]
-  before_action :set_question, only: %i[ show edit update destroy like]
+  before_action :set_question, only: %i[show edit update destroy like]
+  before_action :authenticate_user!, except: %i[index show like]
+ #before_action :is_admin!, except: %i[index show]
 
   # GET /questions
   # GET /questions.json
-  def name
-    puts= current_user.username
+  def username0
+    @question.user.username
   end
 
   def index
@@ -31,7 +32,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-      @question = Question.new(question_params)
+    @question = Question.new(question_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: "تم نشر الموضوع" }
