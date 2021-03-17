@@ -1,0 +1,10 @@
+
+<% unless !comment.persisted? %>
+  <div class="card">
+    <div class="card">
+      <div class="card-body">
+        <%= comment.body %>
+      </div>
+    </div>
+  </div>
+<% end %>

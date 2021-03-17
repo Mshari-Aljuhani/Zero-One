@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :questions
+  has_many :comments
   acts_as_voter
 
   after_commit :add_default_avatar, on: %i[create update]
