@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show edit update destroy like]
   before_action :authenticate_user!, except: %i[index show]
-
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -80,7 +80,12 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 
-
+  def correct_user
+    if user_signed_in? && @question.user_id == current_user.id or current_user.try(:admin?)
+      else
+        redirect_to questions_path, notice: ">غير مصرح لك "
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

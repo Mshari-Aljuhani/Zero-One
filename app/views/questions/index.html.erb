@@ -15,27 +15,29 @@
 
   <br/>
     <% @questions.each do |question| %>
+
   <div class='card'>
+
+
+    <div class="col-md-4" >
+      <%= image_tag question.user.avatar_thumbnail, class: 'rounded-circle', size: '70x70' %>
+      <td> <%= question.user.username%> </td>
+      <hr/>
+    </div>
 
       <div class="card-title text-dark">
               <h5><%= question.title %> </h5>
           </div>
 
-    <div>
-      <%= image_tag question.user.avatar_thumbnail, size: '70x70' %>
-      <td> <%=question.user.username%> </td>
-      <hr/>
-    </div>
-
-
     <p class="card-body"> <%= question.content %> </p>
-
           <div class="card-footer">
-              <small> <%=  question.updated_at %> </small>
+            <small> <%=  question.updated_at %> </small>
             <td><%= link_to 'اظهار', question %></td>
-              <td><%= link_to 'تعديل', edit_question_path(question) %></td>
+            <% if user_signed_in? && question.user_id == current_user.id or current_user.try(:admin?) %>
+            <td><%= link_to 'تعديل', edit_question_path(question) %></td>
             <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
-         </div>
+            <%end %>
+          </div>
 </div>
   <br/>
 <% end %>
