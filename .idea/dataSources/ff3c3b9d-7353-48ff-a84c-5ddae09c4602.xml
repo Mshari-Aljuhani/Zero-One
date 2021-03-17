@@ -1671,187 +1671,196 @@ variation_digest</ColNames>
       <Position>13</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <key id="568" parent="176">
+    <column id="568" parent="176" name="created_by">
+      <Position>14</Position>
+      <DataType>varchar|0s</DataType>
+    </column>
+    <key id="569" parent="176">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="569" parent="177" name="version">
+    <column id="570" parent="177" name="version">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="570" parent="177" name="sqlite_autoindex_schema_migrations_1">
+    <index id="571" parent="177" name="sqlite_autoindex_schema_migrations_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="571" parent="177">
+    <key id="572" parent="177">
       <ColNames>version</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_schema_migrations_1</UnderlyingIndexName>
     </key>
-    <column id="572" parent="178" name="type">
+    <column id="573" parent="178" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="573" parent="178" name="name">
+    <column id="574" parent="178" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="574" parent="178" name="tbl_name">
+    <column id="575" parent="178" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="575" parent="178" name="rootpage">
+    <column id="576" parent="178" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="576" parent="178" name="sql">
+    <column id="577" parent="178" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="577" parent="179" name="name">
+    <column id="578" parent="179" name="name">
       <Position>1</Position>
     </column>
-    <column id="578" parent="179" name="seq">
+    <column id="579" parent="179" name="seq">
       <Position>2</Position>
     </column>
-    <column id="579" parent="180" name="id">
+    <column id="580" parent="180" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="580" parent="180" name="email">
+    <column id="581" parent="180" name="email">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="581" parent="180" name="encrypted_password">
+    <column id="582" parent="180" name="encrypted_password">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="582" parent="180" name="reset_password_token">
+    <column id="583" parent="180" name="reset_password_token">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="583" parent="180" name="reset_password_sent_at">
+    <column id="584" parent="180" name="reset_password_sent_at">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="584" parent="180" name="remember_created_at">
+    <column id="585" parent="180" name="remember_created_at">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="585" parent="180" name="created_at">
+    <column id="586" parent="180" name="created_at">
       <Position>7</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="586" parent="180" name="updated_at">
+    <column id="587" parent="180" name="updated_at">
       <Position>8</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="587" parent="180" name="username">
+    <column id="588" parent="180" name="username">
       <Position>9</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="588" parent="180" name="number_of_comments">
+    <column id="589" parent="180" name="number_of_comments">
       <Position>10</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <index id="589" parent="180" name="index_users_on_email">
+    <column id="590" parent="180" name="admin">
+      <Position>11</Position>
+      <DataType>boolean|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="591" parent="180" name="index_users_on_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="590" parent="180" name="index_users_on_reset_password_token">
+    <index id="592" parent="180" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="591" parent="180" name="index_users_on_username">
+    <index id="593" parent="180" name="index_users_on_username">
       <ColNames>username</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="592" parent="180">
+    <key id="594" parent="180">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="593" parent="181" name="id">
+    <column id="595" parent="181" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="594" parent="181" name="votable_type">
+    <column id="596" parent="181" name="votable_type">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="595" parent="181" name="votable_id">
+    <column id="597" parent="181" name="votable_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="596" parent="181" name="voter_type">
+    <column id="598" parent="181" name="voter_type">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="597" parent="181" name="voter_id">
+    <column id="599" parent="181" name="voter_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="598" parent="181" name="vote_flag">
+    <column id="600" parent="181" name="vote_flag">
       <Position>6</Position>
       <DataType>boolean|0s</DataType>
     </column>
-    <column id="599" parent="181" name="vote_scope">
+    <column id="601" parent="181" name="vote_scope">
       <Position>7</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="600" parent="181" name="vote_weight">
+    <column id="602" parent="181" name="vote_weight">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="601" parent="181" name="created_at">
+    <column id="603" parent="181" name="created_at">
       <Position>9</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="602" parent="181" name="updated_at">
+    <column id="604" parent="181" name="updated_at">
       <Position>10</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="603" parent="181" name="index_votes_on_votable_type_and_votable_id">
+    <index id="605" parent="181" name="index_votes_on_votable_type_and_votable_id">
       <ColNames>votable_type
 votable_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="604" parent="181" name="index_votes_on_votable_id_and_votable_type_and_vote_scope">
+    <index id="606" parent="181" name="index_votes_on_votable_id_and_votable_type_and_vote_scope">
       <ColNames>votable_id
 votable_type
 vote_scope</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="605" parent="181" name="index_votes_on_voter_type_and_voter_id">
+    <index id="607" parent="181" name="index_votes_on_voter_type_and_voter_id">
       <ColNames>voter_type
 voter_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="606" parent="181" name="index_votes_on_voter_id_and_voter_type_and_vote_scope">
+    <index id="608" parent="181" name="index_votes_on_voter_id_and_voter_type_and_vote_scope">
       <ColNames>voter_id
 voter_type
 vote_scope</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="607" parent="181">
+    <key id="609" parent="181">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

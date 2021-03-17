@@ -16,17 +16,25 @@
   <br/>
     <% @questions.each do |question| %>
   <div class='card'>
-          <div class="card-title text-dark">
+
+      <div class="card-title text-dark">
               <h5><%= question.title %> </h5>
           </div>
 
-              <p class="card-body"> <%= question.content %> </p>
+    <div>
+      <%= image_tag question.user.avatar_thumbnail, size: '70x70' %>
+      <td> <%=question.user.username%> </td>
+      <hr/>
+    </div>
+
+
+    <p class="card-body"> <%= question.content %> </p>
 
           <div class="card-footer">
               <small> <%=  question.updated_at %> </small>
-              <td><%= link_to 'اظهار', question %></td>
+            <td><%= link_to 'اظهار', question %></td>
               <td><%= link_to 'تعديل', edit_question_path(question) %></td>
-              <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
+            <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
          </div>
 </div>
   <br/>

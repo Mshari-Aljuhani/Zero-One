@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show edit update destroy like]
-  before_action :authenticate_user!, except: %i[index show like]
- #before_action :is_admin!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show]
+
 
   # GET /questions
   # GET /questions.json
@@ -11,8 +11,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
-       now = Time.new
-      @questions =  Question.where(updated_at: (now - 21.hours)..now)
   end
 
   # GET /questions/1
@@ -32,7 +30,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params.merge(user_id: current_user.id))
+    @question = Question.new(question_params.merge(user_id: current_user.id, created_by: current_user.username))
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: "تم نشر الموضوع" }
@@ -81,6 +79,8 @@ class QuestionsController < ApplicationController
     end
     redirect_to @question
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

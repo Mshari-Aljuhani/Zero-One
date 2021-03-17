@@ -1,6 +1,13 @@
 <html  >
 
 <br/>
+
+<!--
+هنا لازم نضيف قائمة اسئلة العضو نفسه
+-->
+
+<br/>
+
 <div class="card" >
   <div class="card-header">
     <h4>اعدادات الحساب<% resource_name.to_s.humanize %></h4>
@@ -19,9 +26,6 @@
           <div class="col-sm-8">
             <%=f.file_field :avatar , autofocus: true, class: "form-control"%>
           </div>
-        <div class="actions">
-          <%= f.submit "تغيير الصور", class:"btn btn-outline-info"   %>
-        </div>
     <br>
         <div class="field">
           <% f.label :username %>
@@ -54,6 +58,7 @@
         </div>
         <br/>
         <div class="field">
+          <p class="badge rounded-pill bg-danger"> يجب ادخال كلمة المرور لحفظ اي تغييرات</p>
           <% f.label :current_password %> <i></i>
           <%= f.password_field :current_password, autocomplete: "current-password",  class: "form-control", placeholder: "كلمة المرور الحالية  (يجب ادخالها لحفظ التغييرات)" %>
         </div>

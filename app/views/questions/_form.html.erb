@@ -12,14 +12,19 @@
 
   <% end %>
   <br/>
+
   <div class="field">
-    <%= form.text_field :title,class: "form-control", placeholder: "عنوان الموضوع" %>
-  </div>
-  <br/>
+    <%= form.text_field :title, class: "form-control", placeholder: "عنوان الموضوع" %>
+  </div><br/>
+
   <div class="field">
     <%= form.text_area :content,  class: "form-control", placeholder: "محتوى الموضوع" %>
   </div>
+  <div class="field">
 
+  <%= form.text_area :created_by, value: current_user.username %>
+  </div>
+  <% form.label :user_id, id: @question.user_id, value: current_user.id%>
   <br/>
 
   <div class="actions">
