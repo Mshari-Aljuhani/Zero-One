@@ -7,7 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 #
-User.create!(email: "mshari@gmail.com",
-             password: 'mshari12',
-             password_confirmation: "mshari12",
-             admin: true)
+
+#Mshari's Admin account
+#User.create!(email: "Mshari.aljuhani0@gmail.com",
+#            username: "Mshari.Aljuhani",
+#            password: 'mshari11',
+#            password_confirmation: "mshari11",
+#            admin: true,)
+
+          #Temp Admin account
+#User.create!(email: "admin@g.com",
+#             username: "Admin",
+#             password: 'admin1',
+#             password_confirmation: "admin1",
+#             admin: true)
