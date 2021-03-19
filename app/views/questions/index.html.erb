@@ -1,6 +1,7 @@
 <html lang='ar' dir="rtl">
 
     <br/><br/>
+
     <% if user_signed_in? %>
     <div class="form-group">
       <%= image_tag current_user.avatar_thumbnail, class: 'rounded-circle'%>
@@ -14,33 +15,54 @@
   </div>
 
   <br/>
+
     <% @questions.each do |question| %>
 
-  <div class='card'>
+  <div class="card text-right">
+    <div class="row align-content justify-content">
 
+      <div class="user_details col-md-1">
+        <%= image_tag question.user.avatar_thumbnail, class: 'rounded-circle', size: '70x70' %>
+        <td> <%= question.user.username%> </td>
+      </div>
 
-    <div class="col-md-4" >
-      <%= image_tag question.user.avatar_thumbnail, class: 'rounded-circle', size: '70x70' %>
-      <td> <%= question.user.username%> </td>
-      <hr/>
-    </div>
-
-      <div class="card-title text-dark">
-              <h5><%= question.title %> </h5>
-          </div>
-
-    <p class="card-body"> <%= question.content %> </p>
-          <div class="card-footer">
-            <small> <%=  question.updated_at %> </small>
-            <td><%= link_to 'اظهار', question %></td>
-            <% if user_signed_in? && question.user_id == current_user.id or current_user.try(:admin?) %>
+      <div class="col">
+        <div class="card-title ">
+          <h5><%= question.title %> </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= question.content %></p>
+        </div>
+        <div class="card-footer text-muted">
+          <small> <%= question.updated_at %> </small>
+          <td><%= link_to 'اظهار', question %></td>
+          <% if user_signed_in? && question.user_id == current_user.id or current_user.try(:admin?) %>
             <td><%= link_to 'تعديل', edit_question_path(question) %></td>
             <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
-            <%end %>
-          </div>
-</div>
-  <br/>
+          <%end %>
+        </div>
+      </div>
+
+      <!-- نظام التصويت -->
+      <div class="user_details col-md-1">
+        <div id='like-count'>
+         <%=render 'questions/like', question: question %>
+        </div>
+
+        <div id='like-link'>
+         <h4> <%=render 'questions/like_link', question: question %></h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+      <br/>
 <% end %>
+
+
+
 <br/>
 
 <% if user_signed_in? %>

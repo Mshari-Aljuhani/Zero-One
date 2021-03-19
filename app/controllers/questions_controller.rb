@@ -43,13 +43,6 @@ class QuestionsController < ApplicationController
   end
 
 
-  def vote
-    if !current_user.liked? @question
-      @question.liked_by current_user
-    elsif current_user.liked? @question
-      @question.unliked_by current_user
-    end
-  end
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update

@@ -1560,307 +1560,285 @@ variation_digest</ColNames>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="544" parent="175" name="edit_history">
+    <column id="544" parent="175" name="body">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="545" parent="175" name="commentable_id">
+    <column id="545" parent="175" name="question_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="546" parent="175" name="commentable_type">
+    <column id="546" parent="175" name="user_id">
       <Position>4</Position>
-      <DataType>varchar|0s</DataType>
+      <DataType>integer|0s</DataType>
     </column>
-    <column id="547" parent="175" name="user_id">
+    <column id="547" parent="175" name="created_at">
       <Position>5</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="548" parent="175" name="reply">
+    <column id="548" parent="175" name="updated_at">
       <Position>6</Position>
-      <DataType>boolean|0s</DataType>
-    </column>
-    <column id="549" parent="175" name="comment_number">
-      <Position>7</Position>
-      <DataType>integer|0s</DataType>
-    </column>
-    <column id="550" parent="175" name="created_at">
-      <Position>8</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="551" parent="175" name="updated_at">
-      <Position>9</Position>
-      <DataType>datetime(6)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="552" parent="175" name="index_comments_on_user_id">
-      <ColNames>user_id</ColNames>
-      <ColumnCollations></ColumnCollations>
-    </index>
-    <key id="553" parent="175">
+    <key id="549" parent="175">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="554" parent="175" name="fk_rails_03de2dc08c">
-      <ColNames>user_id</ColNames>
-      <RefTableName>users</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="555" parent="176" name="id">
+    <column id="550" parent="176" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="556" parent="176" name="title">
+    <column id="551" parent="176" name="title">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="557" parent="176" name="content">
+    <column id="552" parent="176" name="content">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="558" parent="176" name="created_at">
+    <column id="553" parent="176" name="created_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="559" parent="176" name="updated_at">
+    <column id="554" parent="176" name="updated_at">
       <Position>5</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="560" parent="176" name="cached_votes_total">
+    <column id="555" parent="176" name="cached_votes_total">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="561" parent="176" name="cached_votes_score">
+    <column id="556" parent="176" name="cached_votes_score">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="562" parent="176" name="cached_votes_up">
+    <column id="557" parent="176" name="cached_votes_up">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="563" parent="176" name="cached_votes_down">
+    <column id="558" parent="176" name="cached_votes_down">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="564" parent="176" name="cached_weighted_score">
+    <column id="559" parent="176" name="cached_weighted_score">
       <Position>10</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="565" parent="176" name="cached_weighted_total">
+    <column id="560" parent="176" name="cached_weighted_total">
       <Position>11</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="566" parent="176" name="cached_weighted_average">
+    <column id="561" parent="176" name="cached_weighted_average">
       <Position>12</Position>
       <DataType>float|0s</DataType>
       <DefaultExpression>0.0</DefaultExpression>
     </column>
-    <column id="567" parent="176" name="user_id">
+    <column id="562" parent="176" name="user_id">
       <Position>13</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="568" parent="176" name="created_by">
+    <column id="563" parent="176" name="created_by">
       <Position>14</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <key id="569" parent="176">
+    <key id="564" parent="176">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="570" parent="177" name="version">
+    <column id="565" parent="177" name="version">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="571" parent="177" name="sqlite_autoindex_schema_migrations_1">
+    <index id="566" parent="177" name="sqlite_autoindex_schema_migrations_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="572" parent="177">
+    <key id="567" parent="177">
       <ColNames>version</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_schema_migrations_1</UnderlyingIndexName>
     </key>
-    <column id="573" parent="178" name="type">
+    <column id="568" parent="178" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="574" parent="178" name="name">
+    <column id="569" parent="178" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="575" parent="178" name="tbl_name">
+    <column id="570" parent="178" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="576" parent="178" name="rootpage">
+    <column id="571" parent="178" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="577" parent="178" name="sql">
+    <column id="572" parent="178" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="578" parent="179" name="name">
+    <column id="573" parent="179" name="name">
       <Position>1</Position>
     </column>
-    <column id="579" parent="179" name="seq">
+    <column id="574" parent="179" name="seq">
       <Position>2</Position>
     </column>
-    <column id="580" parent="180" name="id">
+    <column id="575" parent="180" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="581" parent="180" name="email">
+    <column id="576" parent="180" name="email">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="582" parent="180" name="encrypted_password">
+    <column id="577" parent="180" name="encrypted_password">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="583" parent="180" name="reset_password_token">
+    <column id="578" parent="180" name="reset_password_token">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="584" parent="180" name="reset_password_sent_at">
+    <column id="579" parent="180" name="reset_password_sent_at">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="585" parent="180" name="remember_created_at">
+    <column id="580" parent="180" name="remember_created_at">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="586" parent="180" name="created_at">
+    <column id="581" parent="180" name="created_at">
       <Position>7</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="587" parent="180" name="updated_at">
+    <column id="582" parent="180" name="updated_at">
       <Position>8</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="588" parent="180" name="username">
+    <column id="583" parent="180" name="username">
       <Position>9</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="589" parent="180" name="number_of_comments">
+    <column id="584" parent="180" name="number_of_comments">
       <Position>10</Position>
       <DataType>integer|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="590" parent="180" name="admin">
+    <column id="585" parent="180" name="admin">
       <Position>11</Position>
       <DataType>boolean|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <index id="591" parent="180" name="index_users_on_email">
+    <index id="586" parent="180" name="index_users_on_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="592" parent="180" name="index_users_on_reset_password_token">
+    <index id="587" parent="180" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="593" parent="180" name="index_users_on_username">
+    <index id="588" parent="180" name="index_users_on_username">
       <ColNames>username</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="594" parent="180">
+    <key id="589" parent="180">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="595" parent="181" name="id">
+    <column id="590" parent="181" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="596" parent="181" name="votable_type">
+    <column id="591" parent="181" name="votable_type">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="597" parent="181" name="votable_id">
+    <column id="592" parent="181" name="votable_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="598" parent="181" name="voter_type">
+    <column id="593" parent="181" name="voter_type">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="599" parent="181" name="voter_id">
+    <column id="594" parent="181" name="voter_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="600" parent="181" name="vote_flag">
+    <column id="595" parent="181" name="vote_flag">
       <Position>6</Position>
       <DataType>boolean|0s</DataType>
     </column>
-    <column id="601" parent="181" name="vote_scope">
+    <column id="596" parent="181" name="vote_scope">
       <Position>7</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <column id="602" parent="181" name="vote_weight">
+    <column id="597" parent="181" name="vote_weight">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="603" parent="181" name="created_at">
+    <column id="598" parent="181" name="created_at">
       <Position>9</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="604" parent="181" name="updated_at">
+    <column id="599" parent="181" name="updated_at">
       <Position>10</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="605" parent="181" name="index_votes_on_votable_type_and_votable_id">
+    <index id="600" parent="181" name="index_votes_on_votable_type_and_votable_id">
       <ColNames>votable_type
 votable_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="606" parent="181" name="index_votes_on_votable_id_and_votable_type_and_vote_scope">
+    <index id="601" parent="181" name="index_votes_on_votable_id_and_votable_type_and_vote_scope">
       <ColNames>votable_id
 votable_type
 vote_scope</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="607" parent="181" name="index_votes_on_voter_type_and_voter_id">
+    <index id="602" parent="181" name="index_votes_on_voter_type_and_voter_id">
       <ColNames>voter_type
 voter_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="608" parent="181" name="index_votes_on_voter_id_and_voter_type_and_vote_scope">
+    <index id="603" parent="181" name="index_votes_on_voter_id_and_voter_type_and_vote_scope">
       <ColNames>voter_id
 voter_type
 vote_scope</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="609" parent="181">
+    <key id="604" parent="181">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

@@ -14,6 +14,28 @@
  *= require_self
  */
 
+.card-container {
+    grid-gap: 10px;
+    padding: 10px;
+    display: grid;
+    border: 10px;
+}
+
+.user_details{
+    grid-column: 2;
+    grid-auto-columns : 100px;
+    border-radius: 5px;
+    background:#E1E4EB ;
+    justify-content: center;
+
+}
+
+.card-item {
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+
 .Footer1{
     background: #2E2F30;
     height: 70px;
@@ -30,7 +52,8 @@
 .card-title{
     padding: 5px;
     border-radius: 5px;
-    background: #3498db;
+    background: #1098db;
+    grid-column: 4 ;
 }
 
 .bg {
@@ -38,4 +61,5 @@
      background-attachment: fixed;
      background-size: cover;
  }
+
 

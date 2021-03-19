@@ -21,6 +21,7 @@
     <%= form.text_area :content,  class: "form-control", placeholder: "محتوى الموضوع" %>
   </div>
   <div class="field">
+    <% form.text_area :created_by, value: current_user.username %>
   </div>
   <br/>
 
