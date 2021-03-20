@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class="card" style="width: 50rem;">
+<div class="card" style="width: 79rem;">
   <div class="card-body">
-    <%= image_tag @question.user.avatar_thumbnail, class: 'rounded-circle'%>
+    <%= image_tag @question.user.avatar_thumbnail, class: 'rounded-circle '%>
     <H3><%= @question.user.username %> </H3>
 
     <h5 class="card-title"><strong>العنوان:</strong>
@@ -14,7 +14,7 @@
     <%= link_to 'العودة', questions_path %>
    <p>كتبت بواسطة <%= @question.user.username %> </p>
 
-    <!-- نظام التصويت-->
+        <!-- نظام التصويت-->
     <div id='like-count'>
       <%=render 'questions/like', question: @question %>
     </div>
@@ -23,18 +23,25 @@
     </div>
   </div>
 </div>
+<br/>
 
       <!-- التعليقات-->
-<div class="card my-1">
+<div class="card mb-3">
   <div class="card-body">
-    <p class="font-weight-bold">Comments</p>
-    <%= form_with(model: [@question, @question.comments.build]) do |f| %>
+  <%= form_with(model: [@question, @question.comments.build]) do |f| %>
       <div class="form-group">
-        <%= f.label 'New comment' %>
-        <%= f.text_area :body, class: 'form-control' %>
+        <%= f.text_area :body, class: 'form-control', placeholder: 'إضافة رد جديد' %>
+      </div><br/>
+      <%= f.submit 'إرسال', class: 'btn btn-primary' %>
       </div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    <% end %>
-  </div>
+  <% end %>
+    </div>
+<div class="card mb-3">
+<div class="card-header bg-info">
+  <h4 class="font-weight-bold">التعليقات</h4>
 </div>
+<div class="card-body">
 <%= render @question.comments %>
+</div>
+</div>
+</div>

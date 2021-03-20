@@ -13,17 +13,21 @@
   <div class="card text-light bg-dark">
      <h1 class="card-header"> قائمة المواضيع </h1>
   </div>
+    <br/>
+      <% if user_signed_in? %>
+  <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-dark" %>
+      <% else %>
+  <%= link_to "سؤال جديد", new_user_session_path, class:"btn btn-dark" %>
+      <% end %>
 
-  <br/>
+<br/><br/>
 
     <% @questions.each do |question| %>
-
   <div class="card text-right">
-    <div class="row align-content justify-content">
+    <div class="row align-content justify-items">
 
-      <div class="user_details col-md-1">
-        <%= image_tag question.user.avatar_thumbnail, class: 'rounded-circle', size: '70x70' %>
-        <td> <%= question.user.username%> </td>
+      <div class="user_details col-auto rows-3 ">
+        <%= image_tag question.user.avatar_thumbnail, class: 'rounded-circle position-relative top-50 start-50 translate-middle '%>
       </div>
 
       <div class="col">
@@ -33,28 +37,30 @@
         <div class="card-body">
           <p class="card-text"><%= question.content %></p>
         </div>
-        <div class="card-footer text-muted">
-          <small> <%= question.updated_at %> </small>
+        <div class="card-footer text-muted style="width="90rem;" >
+          <small> نٌشِر منذ : <%= time_ago_in_words(question.created_at) %> </small>
           <td><%= link_to 'اظهار', question %></td>
+          <strong class="text-dark">بواسطة :  <%= question.user.username %>  </strong>
+          <br/>
           <% if user_signed_in? && question.user_id == current_user.id or current_user.try(:admin?) %>
-            <td><%= link_to 'تعديل', edit_question_path(question) %></td>
-            <td><%= button_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
+            <td><%= link_to 'تعديل', edit_question_path(question), class: "btn btn-outline-primary btn-sm" %></td>
+            <td><%= link_to 'حذف', question_path(question), data: {confirm: "Are you sure?"}, method: :delete,  class: "btn btn-outline-danger btn-sm" %></td>
           <%end %>
         </div>
       </div>
 
       <!-- نظام التصويت -->
-      <div class="user_details col-md-1">
+      <div class="user_details col-auto">
+        <div class="position-relative top-50 start-50 translate-middle">
         <div id='like-count'>
          <%=render 'questions/like', question: question %>
         </div>
-
         <div id='like-link'>
          <h4> <%=render 'questions/like_link', question: question %></h4>
         </div>
+        </div>
       </div>
     </div>
-
   </div>
 
 
@@ -65,15 +71,6 @@
 
 <br/>
 
-<% if user_signed_in? %>
-  <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-dark" %>
-<% else %>
-  <%= link_to "سؤال جديد", new_user_session_path, class:"btn btn-dark" %>
-<% end %>
-</div>
 
-<br/>
-<br/>
-
-<br><br>
+<br/><br/><br><br>
 </html>

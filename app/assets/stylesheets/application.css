@@ -22,12 +22,8 @@
 }
 
 .user_details{
-    grid-column: 2;
-    grid-auto-columns : 100px;
     border-radius: 5px;
     background:#E1E4EB ;
-    justify-content: center;
-
 }
 
 .card-item {
