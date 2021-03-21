@@ -1,11 +1,33 @@
 
 <% unless !comment.persisted? %>
   <div class="py-3 border-bottom comment comment-<%= comment.id%>">
-    <small class="d-inline-block mb-3 text-secondary border-bottom"> نٌشِر منذ : <%= time_ago_in_words(comment.created_at) %> </small>
-    <p><%= comment.body %></p>
-    <div class="btn-group">
-      <%= link_to "تعديل التعليق", edit_comment_path(comment), class: "btn btn-sm btn-outline-primary" %>
-      <%= link_to "حذف التعليق", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
+
+    <div class="card text-right">
+      <div class="row align-content justify-items">
+
+        <div class="user_details col-auto ">
+          <%= image_tag comment.user.avatar_thumbnail, class: 'rounded-circle position-relative top-50 start-50 translate-middle '%>
+        </div>
+
+        <div class="col">
+          <div class="card-body">
+            <p class="card-text"><%= comment.body %></p>
+          </div>
+
+          <div class="card-footer text-muted style="width="100rem;" >
+            <small> نٌشِر منذ : <%= time_ago_in_words(comment.created_at) %> </small>
+            <strong class="text-dark">بواسطة :  <%= comment.user.username %>  </strong>
+            <% if user_signed_in? && comment.user_id == current_user.id or current_user.try(:admin?) %>
+              <%= link_to "تعديل التعليق", edit_comment_path(comment), class: "btn btn-sm btn-outline-primary" %>
+              <%= link_to "حذف التعليق", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
+            <%end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+
+
 <% end %>
+

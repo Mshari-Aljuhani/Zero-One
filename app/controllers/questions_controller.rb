@@ -3,6 +3,8 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+  respond_to :js, :html, :json
+
   # GET /questions
   # GET /questions.json
   def username0
@@ -10,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.order('created_at DESC')
   end
 
   # GET /questions/1

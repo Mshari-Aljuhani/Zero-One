@@ -1,5 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
+  respond_to :js, :html, :json
+
+  def correct_user
+    if user_signed_in? && @comment.user_id == current_user.id or current_user.try(:admin?)
+    else
+      redirect_to @question, notice: ">غير مصرح لك "
+    end
+  end
 
   # GET /comments or /comments.json
   def index
@@ -22,7 +33,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @question=Question.find(params[:question_id])
-    @comment = @question.comments.new(comment_params)
+    @comment = @question.comments.new(comment_params.merge(user_id: current_user.id,))
 
     respond_to do |format|
       if @comment.save
@@ -39,7 +50,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: "Comment was successfully updated." }
+        format.html { redirect_to @question, notice: "Comment was successfully updated." }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +76,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :post_id, :parent_id)
+      params.require(:comment).permit(:body, :question_id, :user_id)
     end
 end

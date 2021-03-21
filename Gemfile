@@ -29,6 +29,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # التصويت اضافة
 gem 'acts_as_votable'
 
+#اتوقع ضرورية للافاتار
+gem "mini_magick"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

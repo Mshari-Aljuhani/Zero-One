@@ -29,12 +29,14 @@
 <div class="card mb-3">
   <div class="card-body">
   <%= form_with(model: [@question, @question.comments.build]) do |f| %>
+
       <div class="form-group">
         <%= f.text_area :body, class: 'form-control', placeholder: 'إضافة رد جديد' %>
       </div><br/>
       <%= f.submit 'إرسال', class: 'btn btn-primary' %>
       </div>
   <% end %>
+
     </div>
 <div class="card mb-3">
 <div class="card-header bg-info">
