@@ -12,7 +12,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order('created_at DESC')
+    @q = Question.order('created_at DESC').ransack(params[:q])
+    @questions = @q.result
+
   end
 
   # GET /questions/1
