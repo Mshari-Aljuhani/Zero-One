@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order('created_at DESC')
+    @questions = Question.order('created_at DESC').paginate(page: params[:page])
   end
 
   # GET /questions/1
