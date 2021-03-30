@@ -21,7 +21,13 @@
       <% end %>
 
 <br/><br/>
+      <br/><br/>
 
+      <div class="digg_pagination">
+        <%= will_paginate @questions, :container => false %>
+      </div>
+
+      <br>
     <% @questions.each do |question|  %>
   <div class="card text-right">
     <div class="row align-content justify-items">
@@ -61,7 +67,12 @@
       </div>
     </div>
   </div>
+  <br/><br>
 <%end %>
 
-<br/><br/><br/><br><br>
+<br/><br/>
+<div class="digg_pagination">
+  <%= will_paginate @questions, :container => false %>
+</div>
+<br>
 </html>
