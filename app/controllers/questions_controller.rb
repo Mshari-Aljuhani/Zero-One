@@ -12,9 +12,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @q = Question.order('created_at DESC').ransack(params[:q])
+    @q = Question.order('created_at DESC').paginate(page: params[:page]).ransack(params[:q])
     @questions = @q.result
-
   end
 
   # GET /questions/1

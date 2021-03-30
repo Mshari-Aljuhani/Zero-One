@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.bg{
+    background-image: url("png-images-for-website-background-1.png");
+    }
+
+
+
 
 .card-container {
     grid-gap: 10px;
@@ -57,10 +63,6 @@
     color: #2E2F30;
 }
 
-.bg {
-     background-image: url('app/assets/images/bgTest.jpg');
-     background-attachment: fixed;
-     background-size: cover;
- }
+
 
 
