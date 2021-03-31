@@ -16,17 +16,13 @@ class User < ApplicationRecord
       unless avatar.attached?
         avatar.attach(
           io: File.open(
-            Rails.root.join(
-              'app', 'assets', 'images', 'default_profile.png'
-            )
+            Rails.root.join('app', 'assets', 'images', 'default_profile.png')
           ), filename: 'default_profile.png',
-          content_type: 'image/png'
-        )
+          content_type: 'image/png')
       end
     end
   )
-
-  def avatar_thumbnail
+  def user_avatar
      if avatar.attached?
        avatar.variant(resize: '90x90!')
      else

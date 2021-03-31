@@ -15,7 +15,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <%= image_tag comment.user.avatar_thumbnail, class: 'rounded-circle', size:'50x50' %>
+        <%= image_tag comment.user.user_avatar, class: 'rounded-circle', size:'50x50' %>
         <td><%= comment.body %></td>
         <td><%= comment.question_id %></td>
         <td><%= comment.user_id %></td>
