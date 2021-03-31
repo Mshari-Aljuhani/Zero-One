@@ -6,7 +6,7 @@
       <div class="row align-content justify-items">
 
         <div class="user_details col-auto ">
-          <%= image_tag comment.user.avatar_thumbnail, class: 'rounded-circle position-relative top-50 start-50 translate-middle '%>
+          <%= image_tag comment.user.user_avatar, class: 'rounded-circle position-relative top-50 start-50 translate-middle '%>
         </div>
 
         <div class="col">
@@ -22,6 +22,7 @@
               <%= link_to "حذف التعليق", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
             <%end %>
           </div>
+
         </div>
       </div>
     </div>

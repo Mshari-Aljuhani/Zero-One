@@ -20,6 +20,11 @@
 
 
 
+.bg{
+    background-image: url("app/assets/images/bg2.png");
+    background-repeat: repeat;
+}
+
 .card-container {
     grid-gap: 10px;
     padding: 10px;
