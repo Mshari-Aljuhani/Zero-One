@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="card" style="width: 79rem;">
+  <div class="card-body">
+    <%= image_tag @comment.user.user_avatar, class: 'rounded-circle '%>
+    <br/>
+    <H3><%= @comment.user.username %> </H3>
+    <br/>
 
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
-
-<p>
-  <strong>Post:</strong>
-  <%= @comment.question_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @comment.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', @question %>
+    <p class="card-text"><strong>المحتوى:<br/></strong>
+      <%= @comment.body  %>
+    </p>
+    <%= link_to 'تعديل', edit_comment_path(@comment) %> |
+    <%= link_to 'العودة',@question  %>

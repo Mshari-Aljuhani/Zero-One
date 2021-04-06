@@ -19,7 +19,7 @@
             <strong class="text-dark">بواسطة :  <%= comment.user.username %>  </strong>
             <% if user_signed_in? && comment.user_id == current_user.id or current_user.try(:admin?) %>
               <%= link_to "تعديل التعليق", edit_comment_path(comment), class: "btn btn-sm btn-outline-primary" %>
-              <%= link_to "حذف التعليق", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
+              <%= button_to "حذف التعليق" ,comment_path(comment),  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
             <%end %>
           </div>
 

@@ -15,16 +15,6 @@
     <%= form.text_field :body, class: "form-control", placeholder: "عنوان الموضوع" %>
   </div><br/>
 
-  <div class="field">
-    <%= form.label :question_id %>
-    <%= form.label :question_id, value= @comment.question_id  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.label :user_id, value= @comment.user_id %>
-  </div>
-
   <div class="actions ">
     <%= form.submit %>
   </div>

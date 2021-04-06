@@ -13,16 +13,14 @@
   <div class="card text-light bg-dark">
      <h1 class="card-header"> قائمة المواضيع </h1>
   </div>
+
     <br/>
+
       <% if user_signed_in? %>
   <%= link_to 'سؤال جديد', new_question_path, class:"btn btn-dark" %>
       <% else %>
   <%= link_to "سؤال جديد", new_user_session_path, class:"btn btn-dark" %>
       <% end %>
-
-<br/><br/>
-      <br/><br/>
-
       <div class="digg_pagination">
         <%= will_paginate @questions, :container => false %>
       </div>
@@ -43,7 +41,7 @@
         <div class="card-body">
           <p class="card-text"><%= question.content %></p>
         </div>
-        <div class="card-footer text-muted style="width="90rem;" >
+        <div class="card-footer text-muted style=" width="90rem; " >
           <small> نٌشِر منذ : <%= time_ago_in_words(question.created_at) %> </small>
           <td><%= link_to 'اظهار', question %></td>
           <strong class="text-dark">بواسطة :  <%= question.user.username %>  </strong>
@@ -70,7 +68,6 @@
   <br/><br>
 <%end %>
 
-<br/><br/>
 <div class="digg_pagination">
   <%= will_paginate @questions, :container => false %>
 </div>

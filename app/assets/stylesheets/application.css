@@ -15,14 +15,12 @@
  */
 .bg{
     background-image: url("png-images-for-website-background-1.png");
-    }
+    background-blend-mode:difference ;
+}
+.nav-links{
+    margin-left: 20px;
+    margin-right: 20px;
 
-
-
-
-.bg{
-    background-image: url("app/assets/images/bg2.png");
-    background-repeat: repeat;
 }
 
 .card-container {

@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[index show]
   before_action :correct_user, only: [:edit, :update, :destroy]
-
   respond_to :js, :html, :json
 
   def correct_user
@@ -37,7 +36,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @question, notice: "Comment was successfully created." }
+        format.html { redirect_to @question, notice: "تم نشر التعليق بنجاح" }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,9 +47,11 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
+    @question = Question.find_by_id @comment.question_id
+
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @question, notice: "Comment was successfully updated." }
+        format.html { redirect_to @question, notice: "تم تعديل التعليق بنجاح" }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,9 +62,10 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+    @question = Question.find_by_id @comment.question_id
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to @question, notice: "تم حذف التعليق بنجاح" }
       format.json { head :no_content }
     end
   end
