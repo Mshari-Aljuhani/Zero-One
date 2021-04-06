@@ -30,7 +30,7 @@
   <div class="card text-right">
     <div class="row align-content justify-items">
 
-      <div class="user_details col-auto rows-3 ">
+        <div class="user_details col-auto rows-3 ">
         <%= image_tag question.user.user_avatar, class: 'rounded-circle position-relative top-50 start-50 translate-middle '%>
       </div>
 
@@ -53,14 +53,15 @@
       </div>
 
       <!-- نظام التصويت -->
-      <div class="user_details col-auto">
-        <div class="position-relative top-50 start-50 translate-middle">
+      <div class="user_details col-1">
+        <div class="position-relative top-50 start-50 translate-middle" style= hight:10rem>
           <div id='like-count'>
             <%=render 'questions/like', question: question %>
           </div>
           <div id='like-link'>
-            <h4> <%=render 'questions/like_link', question: question %></h4>
+            <div> <%=render 'questions/like_link', question: question %></div>
           </div>
+          <p> التعليقات: <%=question.comments.count%> </p>
         </div>
       </div>
     </div>

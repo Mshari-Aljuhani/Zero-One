@@ -33,6 +33,12 @@
 .user_details{
     border-radius: 5px;
     background:#E1E4EB ;
+    text-align: center;
+
+}
+
+.user-details-content{
+    ruby-align: center;
 }
 
 .card-item {
@@ -40,6 +46,10 @@
     padding: 20px;
     font-size: 30px;
 }
+
+.like-link-index{
+}
+
 
 .Footer1{
     background: #2E2F30;
@@ -58,7 +68,6 @@
     padding: 6px;
     border-radius: 5px;
     background: #1098db;
-    grid-column: 4 ;
 }
 
 .card-title-text{

@@ -42,7 +42,9 @@
 <div class="card-header bg-info">
   <h4 class="font-weight-bold">التعليقات</h4>
 </div>
-<div class="card-body">
+  <br/>
+  <h5>  عدد التعليقات: <%=@question.comments.count%>  </h5>
+  <div class="card-body">
 <%= render @question.comments %>
 </div>
 </div>
