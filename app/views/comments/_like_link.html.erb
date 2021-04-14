@@ -1,0 +1,6 @@
+<% like = image_tag "Like.png", size: '30x30' %>
+<% unlike = image_tag "unLike.png", size: '30x30' %>
+
+<% vote_text = current_user&.voted_for?(comment)?  like : unlike %>
+<%= link_to vote_text, like_c_question_path(comment),
+            method: :put, remote: :true, class: 'like' %>

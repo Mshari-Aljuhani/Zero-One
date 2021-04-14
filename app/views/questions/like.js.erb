@@ -1,5 +1,9 @@
+$('.liked-btn').on('ajax:success', function(){
+    $(this).parent().parent().find('.like-count').html('<%= @question.get_likes.size %> &128591');
+    $(this).closet('.liked-btn').html('Like');
+});
 
-$("#like-count").html("<%= j render 'question/likes', question: @question %>");
-$("#like-text").html("<%= j render 'question/like_text', question: @question %>");
-
-
+$('.like-btn').on('ajax:success', function(){
+    $(this).parent().parent().find('.like-count').html('<%= @question.get_likes.size %> &128591');
+    $(this).closet('.like-btn').html('Liked');
+});

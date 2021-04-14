@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[ show edit update destroy like ]
   before_action :authenticate_user!, except: %i[index show]
   before_action :correct_user, only: [:edit, :update, :destroy]
   respond_to :js, :html, :json
@@ -10,6 +10,15 @@ class CommentsController < ApplicationController
       redirect_to @question, notice: ">غير مصرح لك "
     end
   end
+
+  def like
+    if current_user.voted_for? @comment
+      @comment.unliked_by current_user
+    else
+      @comment.liked_by current_user
+    end
+    redirect_back fallback_location: @question
+    end
 
   # GET /comments or /comments.json
   def index

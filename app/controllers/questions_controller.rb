@@ -70,7 +70,7 @@ class QuestionsController < ApplicationController
     else
       @question.liked_by current_user
     end
-    redirect_to @question
+    redirect_back fallback_location: @question
   end
 
   def correct_user

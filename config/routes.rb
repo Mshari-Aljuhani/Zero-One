@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :comments
     member do
+      get 'like_c' => 'comments#like'
+      get 'link_c' => 'comments#like_link'
       get 'like' => 'questions#like'
       get 'link' => 'questions#like_link'
     end

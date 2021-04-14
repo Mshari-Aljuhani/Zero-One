@@ -22,8 +22,17 @@
               <%= button_to "حذف التعليق" ,comment_path(comment),  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
             <%end %>
           </div>
+        </div>
+        <div class="user_details col-1">
+          <div id='like-count'>
+            <%=render 'comments/like', comment: comment, remote:true %>
+          </div>
+          <div id='like-link'>
+            <div> <%=render 'comments/like_link', comment: comment, remote:true %></div>
+          </div>
 
         </div>
+
       </div>
     </div>
   </div>
