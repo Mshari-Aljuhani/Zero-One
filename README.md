@@ -1,24 +1,11 @@
-# README
+* Ruby 2.7.2
+* Rails 6.1
+* to run it use terminal and ``` rails s ```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is our graduate project and its Q&A web application 
 
-Things you may want to cover:
+we called it Zero-One 
 
-* Ruby version
+it's based on Ruby on Rails framework with a MVC concept 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+with this project we are used the agile method to build this project
